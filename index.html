@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pooja 💖 My Valentine</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to bottom right, #ffd6e7, #ffeaf4);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #ff2e7a;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.yes {
+  background: #ff4d88;
+  color: white;
+}
+
+.no {
+  background: #ffc0cb;
+  color: #ff2e7a;
+  position: absolute;
+}
+
+.gift {
+  background: #ff66a3;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.rose {
+  font-size: 80px;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #ff2e7a;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.heart {
+  position: fixed;
+  color: #ff4d88;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-10vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="badge">14 FEB 💕</div>
+
+<!-- Main Page -->
+<div class="container" id="main">
+  <h1>Hey Pooja 💕<br>Will you be my Valentine?</h1>
+  <button class="yes" onclick="showGifts()">YES OF COURSE 💖</button>
+  <button class="no" onmouseover="moveNo()">NO THANK YOU</button>
+</div>
+
+<!-- Gift Page -->
+<div class="container hidden" id="gifts">
+  <h1>Yay, you said yes Pooja! 💞</h1>
+  <p>I made all these for you hehe 🥰</p>
+
+  <button class="gift" onclick="showBouquet()">🌹 Rose Bouquet</button>
+  <button class="gift" onclick="showLetter()">💌 Love Letter</button>
+  <button class="gift" onclick="showPromise()">🎀 Promise</button>
+</div>
+
+<!-- Bouquet -->
+<div class="container hidden" id="bouquet">
+  <div class="card">
+    <h2>Rose Bouquet for Pooja 🌹</h2>
+    <div class="rose">🌹🌹🌹🌹🌹🌹🌹🌹🌹</div>
+    <p>I will always love you no matter what ❤️</p>
+  </div>
+</div>
+
+<!-- Letter -->
+<div class="container hidden" id="letter">
+  <div class="card">
+    <h2>Words From My Heart 💌</h2>
+    <p>
+      To the love of my life Pooja,<br><br>
+      You make my life so meaningful and I am so lucky to have you
+      as my Valentine this year. I love you wholeheartedly and I
+      can’t wait to continue loving you for the rest of my life.
+      <br><br>
+      You are literally the most beautiful girl in my world.
+      I know I say it every day… but it will never be enough.
+      <br><br>
+      Forever yours 💖
+    </p>
+  </div>
+</div>
+
+<!-- Promise -->
+<div class="container hidden" id="promise">
+  <div class="card">
+    <h2>My Promise 🎀</h2>
+    <p>You will forever be my only option 💕</p>
+    <p>I can't imagine a life without you Pooja ❤️</p>
+  </div>
+</div>
+
+<script>
+
+function showGifts(){
+  document.getElementById("main").classList.add("hidden");
+  document.getElementById("gifts").classList.remove("hidden");
+}
+
+function moveNo(){
+  let btn = document.querySelector(".no");
+  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
+
+function showBouquet(){
+  hideAll();
+  document.getElementById("bouquet").classList.remove("hidden");
+}
+
+function showLetter(){
+  hideAll();
+  document.getElementById("letter").classList.remove("hidden");
+}
+
+function showPromise(){
+  hideAll();
+  document.getElementById("promise").classList.remove("hidden");
+}
+
+function hideAll(){
+  document.getElementById("gifts").classList.add("hidden");
+  document.getElementById("bouquet").classList.add("hidden");
+  document.getElementById("letter").classList.add("hidden");
+  document.getElementById("promise").classList.add("hidden");
+}
+
+/* Floating hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.innerHTML = "💖";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+
+</script>
+
+</body>
+  </html>
