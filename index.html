@@ -59,31 +59,35 @@ button {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.rose {
-  font-size: 80px;
-}
-
 .badge {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   background: white;
-  padding: 10px;
+  padding: 10px 15px;
   border-radius: 15px;
   font-weight: bold;
   color: #ff2e7a;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.heart {
+/* Hello Kitty Stickers */
+.kitty {
   position: fixed;
-  color: #ff4d88;
-  animation: float 5s linear infinite;
+  width: 90px;
+  z-index: 999;
+  animation: floaty 3s ease-in-out infinite;
 }
 
-@keyframes float {
-  0% { transform: translateY(100vh); }
-  100% { transform: translateY(-10vh); }
+.top-left { top: 10px; left: 10px; }
+.top-right { top: 10px; right: 10px; }
+.bottom-left { bottom: 10px; left: 10px; }
+.bottom-right { bottom: 10px; right: 10px; }
+
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 </style>
 </head>
@@ -91,6 +95,12 @@ button {
 <body>
 
 <div class="badge">14 FEB 💕</div>
+
+<!-- Hello Kitty GIF Stickers -->
+<img src="https://media.tenor.com/4z4tWvC8Qe0AAAAi/hello-kitty-love.gif" class="kitty top-left">
+<img src="https://media.tenor.com/zM8vXGm3UysAAAAi/hello-kitty-cute.gif" class="kitty bottom-right">
+<img src="https://media.tenor.com/2roX3uxz_68AAAAi/hello-kitty-kiss.gif" class="kitty top-right">
+<img src="https://media.tenor.com/JmTBxGv2rY8AAAAi/hello-kitty-hug.gif" class="kitty bottom-left">
 
 <!-- Main Page -->
 <div class="container" id="main">
@@ -113,7 +123,7 @@ button {
 <div class="container hidden" id="bouquet">
   <div class="card">
     <h2>Rose Bouquet for Pooja 🌹</h2>
-    <div class="rose">🌹🌹🌹🌹🌹🌹🌹🌹🌹</div>
+    <p style="font-size:50px;">🌹🌹🌹🌹🌹🌹🌹🌹</p>
     <p>I will always love you no matter what ❤️</p>
   </div>
 </div>
@@ -146,7 +156,6 @@ button {
 </div>
 
 <script>
-
 function showGifts(){
   document.getElementById("main").classList.add("hidden");
   document.getElementById("gifts").classList.remove("hidden");
@@ -179,19 +188,7 @@ function hideAll(){
   document.getElementById("letter").classList.add("hidden");
   document.getElementById("promise").classList.add("hidden");
 }
-
-/* Floating hearts */
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.innerHTML = "💖";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
-}, 500);
-
 </script>
 
 </body>
-  </html>
+</html>
